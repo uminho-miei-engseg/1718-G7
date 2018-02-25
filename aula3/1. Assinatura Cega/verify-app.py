@@ -67,15 +67,5 @@ def showResults(errorCode, validSignature):
     elif (errorCode == 4):
         print("Error: invalid signature format")
 
-def main(eccPublicKeyPath):
-    pemPublicKey = utils.readFile(eccPublicKeyPath)
-    print("Input")
-    data = raw_input("Original data: ")
-    signature = raw_input("Signature: ")
-    blindComponents = raw_input("Blind components: ")
-    pRComponents = raw_input("pR components: ")
-    errorCode, validSignature = eccblind.verifySignature(pemPublicKey, signature, blindComponents, pRComponents, data)
-    showResults(errorCode, validSignature)
-
 if __name__ == "__main__":
     parseArgs()
